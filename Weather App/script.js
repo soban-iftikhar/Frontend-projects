@@ -11,15 +11,35 @@ document.getElementById("get-weather").addEventListener("click", () => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            
             if (data.cod === 200) {
+                
+                const weatherEmojis = {
+                    Clear: "☀️",       // Sunny
+                    Clouds: "☁️",      // Cloudy
+                    Rain: "🌧️",       // Rainy
+                    Thunderstorm: "⛈️", // Storm
+                    Snow: "❄️",       // Snowy
+                    Mist: "🌫️",       // Mist/Fog
+                    Drizzle: "🌦️",    // Light Rain
+                    Haze: "🌁",       // Hazy
+                };
+            
+              
+                const weatherCondition = data.weather[0].main; 
+                const weatherEmoji = weatherEmojis[weatherCondition] || "🌍"; 
+            
                 document.getElementById("weather-container").innerHTML = `
-                    <h3>${data.name}, ${data.sys.country}</h3>
-                    <p>Temperature: ${data.main.temp}°C</p>
-                    <p>Weather: ${data.weather[0].description}</p>
-                    <p>Humidity: ${data.main.humidity}%</p>
-                    <p>Wind Speed: ${data.wind.speed} m/s</p>
+                    <div class="weather-card">
+                        <h2>${data.name}, ${data.sys.country}</h2>
+                        <h1>${weatherEmoji} ${data.main.temp}°C</h1>
+                        <p class="weather-desc">${data.weather[0].description}</p>
+                        <div class="weather-details">
+                            <p>💧 Humidity: ${data.main.humidity}%</p>
+                            <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
+                        </div>
+                    </div>
                 `;
+
             } else {
                 document.getElementById("weather-container").innerHTML = `<p>Error: ${data.message}</p>`;
             }

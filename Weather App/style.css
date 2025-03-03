@@ -60,31 +60,50 @@ button:hover {
 }
 
 /* Weather Info Card */
-div {
-    background: #DFF2EB;
-    width: 30%;
-    margin: 10px auto;
-    margin-top: 20px;
+.weather-card {
+    background: linear-gradient(135deg, #7AB2D3, #DFF2EB);
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    position: relative;
-    transform: translate(0, 0);
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-div:hover {
+.weather-card:hover {
     transform: scale(1.05);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-div h3 {
-    margin: 10px;
-    margin-top: 20px;
-    padding: 2px;
-}
-div p {
-    margin: 10px;
-    padding: 3px;
+.weather-card h2 {
+    font-size: 24px;
+    color: #333;
 }
 
+.weather-card h1 {
+    font-size: 40px;
+    color: #008080;
+    margin: 10px 0;
+}
+
+.weather-desc {
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+}
+
+.weather-details {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #222;
+}
+
+.weather-details p {
+    margin: 5px 0;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 50%;
+}
