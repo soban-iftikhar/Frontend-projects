@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');
     const inputs = form.querySelectorAll('input');
-    const signInform = document.getElementById('signInform');
-
 
     function showError(input, message) {
         const formField = input.parentElement;
@@ -81,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     inputs.forEach(input => {
-        input.addEventListener('blur', () => {
+        input.addEventListener('input', () => {
             validateInput(input);
         });
     });
@@ -101,5 +99,80 @@ document.addEventListener('DOMContentLoaded', function () {
             form.submit();
         }
     });
+
+
+    // validating/accessing user from local storage
+
+    let users = [];
+    const storedUsers = localStorage.getItem("users");
+
+    if (storedUsers) {
+        users = JSON.parse(storedUsers);
+    }
+
+    const signupform = document.getElementById('signupform');
+    if (signupform) {
+        signupform.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const fname = document.getElementById('fname').value.trim();
+            const lname = document.getElementById('lname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (fname && lname && email && password) {
+                let emailExists = false;
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email === email) {
+                        emailExists = true;
+                        break;
+                    }
+                }
+
+                if (emailExists) {
+                    alert("Email already registered!");
+                    return;
+                }
+
+                users.push({
+                    fname: fname, lname: lname, email: email, password: password
+                });
+
+                localStorage.setItem("users", JSON.stringify(users));
+                alert("Signup successful! Please login.");
+                window.location.href = "signInform.html";
+                
+            } else {
+                alert("All fields are required!");
+            }
+        });
+    }
+
+    const signInform = document.getElementById('signInform');
+    if (signInform) {
+        signInform.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            let foundUser = null;
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === email) {
+                    foundUser = users[i];
+                    break;
+                }
+            }
+
+            if (foundUser && foundUser.password === password) {
+                alert("Welcome back!");
+                window.location.href = "dashboard.html";
+            } else if (foundUser) {
+                alert("Invalid password!");
+            } else {
+                alert("Invalid email!");
+            }
+        });
+    }
 
 });
