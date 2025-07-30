@@ -25,12 +25,13 @@
             <div class="form-field">
                 <input type="password" id="password" name="password" placeholder="Password">
             </div>
-            <button class="trial" type="submit">Claim your free trial</button>
-            <a class="forgot-password" href="forgotpassword.html">Forgot Password</a>
+            <button class="trial" type="button" onclick="handleLoginSubmit()">Claim your free trial</button>
+            <a class="forgot-password" type="button" onclick="handleForgotPassword()" href="#">Forgot Password</a>
 
             <div id="forgotPopup">
                 <input type="text" id="resetCode" placeholder="Enter the Code">
                 <button id="verifyCode" type="button">Verify Code</button>
+                <button id="closePopup" type="button">Close</button>
             </div>
             <p class="terms">By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></p>
             <p class="terms">Don't have an account? <a href="signupform.html">Sign Up</a></p>

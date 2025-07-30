@@ -128,8 +128,8 @@ form input::placeholder {
     padding: 1rem 2rem;
     font-weight: 600;
     top: 30%;
-    left: 50%;
-    transform: translate(-50%, -30%);
+    left: 40%;
+    
 }
 #forgotPopup h3 {
     color: white;
@@ -142,7 +142,7 @@ form input::placeholder {
     border-radius: 0.3rem;
     margin-bottom: 1rem;
 }
-#forgotPopup button {
+#verifyCode {
     background-color: hsl(154, 59%, 45%);
     color: white;
     border: none;
@@ -151,6 +151,14 @@ form input::placeholder {
     cursor: pointer;
 }
 
+#closePopup {
+    background-color: hsla(0, 90%, 59%, 0.893);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
 
 .terms {
     color: hsl(246, 25%, 77%);
