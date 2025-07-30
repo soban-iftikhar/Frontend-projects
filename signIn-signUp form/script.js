@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.form');
     const inputs = form.querySelectorAll('input');
 
+
     function showError(input, message) {
         const formField = input.parentElement;
         formField.classList.add('error');
@@ -77,35 +78,33 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            validateInput(input);
-        });
-    });
-
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        let isValid = true;
-
+    if (inputs.length > 0) {
         inputs.forEach(input => {
-            validateInput(input);
-            if (input.parentElement.classList.contains('error')) {
-                isValid = false;
+            input.addEventListener('input', () => {
+                validateInput(input);
+            });
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            let isValid = true;
+
+            inputs.forEach(input => {
+                validateInput(input);
+                if (input.parentElement.classList.contains('error')) {
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                form.submit();
             }
         });
+    }
 
-        if (isValid) {
-            form.submit();
-        }
-    });
-
-
-    // validating/accessing user from local storage
-
+//accessing and validating users from local storage
     let users = [];
     const storedUsers = localStorage.getItem("users");
-
     if (storedUsers) {
         users = JSON.parse(storedUsers);
     }
@@ -134,14 +133,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
 
-                users.push({
-                    fname: fname, lname: lname, email: email, password: password
-                });
-
+                users.push({ fname: fname, lname: lname, email: email, password: password });
                 localStorage.setItem("users", JSON.stringify(users));
                 alert("Signup successful! Please login.");
                 window.location.href = "signInform.html";
-                
+
             } else {
                 alert("All fields are required!");
             }
@@ -175,4 +171,90 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+   
+    let currentEmail;
+    let code;
+    let found;
+
+    const forgotpass = document.querySelector('.forgot-password');
+    if (forgotpass) {
+        forgotpass.addEventListener('click', (event) => {
+            event.preventDefault();
+            let emailValue = document.getElementById('email').value.trim();
+            found = false;
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === emailValue) {
+                    currentEmail = users[i].email;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found) {
+                alert("Couldn't find your email!");
+                return;
+            }
+
+            code = Math.floor(1000 + Math.random() * 9000);
+            alert(code + " is your reset code. Please enter it in the popup to change your password.");
+            const forgotPopup = document.getElementById('forgotPopup');
+            const resetCode = document.getElementById('resetCode');
+            const verifyCode = document.getElementById('verifyCode');
+
+            forgotPopup.style.display = 'block';
+
+            verifyCode.addEventListener('click', (event) => {
+                event.preventDefault();
+                const userInput = resetCode.value.trim();
+                if (userInput === code.toString()) {
+                    localStorage.setItem("resetEmail", currentEmail);
+                    alert("Code verified! You can now reset your password.");
+                    forgotPopup.style.display = 'none';
+                    window.location.href = "forgotpassword.html";
+                } else {
+                    alert("Invalid code. Please try again.");
+                    resetCode.value = '';
+                }
+            });
+        });
+    }
+
+ 
+    const forgotpassword = document.getElementById('forgotpassword');
+    if (forgotpassword) {
+        forgotpassword.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const newpass = document.getElementById('new-password').value.trim();
+            const confirmPass = document.getElementById('confirm-password').value.trim();
+            const email = localStorage.getItem("resetEmail");
+
+            if (newpass === '' || confirmPass === '') {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            if (newpass !== confirmPass) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            if (newpass.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return;
+            }
+
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email === email) {
+                    users[i].password = newpass;
+                    localStorage.setItem("users", JSON.stringify(users));
+                    localStorage.removeItem("resetEmail");
+                    alert("Password changed successfully!");
+                    window.location.href = "signInform.html";
+                    return;
+                }
+            }
+        });
+    }
 });

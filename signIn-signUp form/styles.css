@@ -99,7 +99,7 @@ form input::placeholder {
     opacity: 0.6;
 }
 
-.trial {
+.trial , .forgot-pass-btn{
     background-color: hsl(154, 59%, 51%);
     color: white;
     border: none;
@@ -113,9 +113,44 @@ form input::placeholder {
     margin-top: 0.5rem;
 }
 
-.trial:hover {
+.trial:hover, .forgot-pass-btn:hover {
     background-color: hsl(154, 59%, 45%);
 }
+
+#forgotPopup {
+    display: none;
+    position: fixed;
+    background-color: hsl(248, 32%, 49%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    font-weight: 600;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+#forgotPopup h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+#forgotPopup input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+#forgotPopup button {
+    background-color: hsl(154, 59%, 45%);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
 
 .terms {
     color: hsl(246, 25%, 77%);
@@ -131,7 +166,15 @@ form input::placeholder {
     font-weight: 700;
 }
 
-/* Error states */
+.forgot-password {
+    color: hsl(226, 93%, 61%);
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+
+
 .form-control.error input {
     border-color: hsl(0, 100%, 74%);
     border-width: 2px;
