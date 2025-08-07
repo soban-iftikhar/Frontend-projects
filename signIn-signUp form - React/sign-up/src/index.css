@@ -1,0 +1,273 @@
+export default index.css
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: hsl(0, 100%, 74%);
+  background-image: url('/assets/bg-intro-desktop.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  margin: 2rem
+
+  
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.welcome {
+    flex: 1;
+    max-width: 500px;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.welcome p {
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.right {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-right: 2rem;
+}
+
+.subscription {
+    background-color: hsl(248, 32%, 49%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    text-align: center;
+    font-weight: 600;
+    width: 100%;
+}
+
+.subscription:hover {
+    background-color: hsl(248, 32%, 39%);
+    cursor: pointer;
+}
+
+form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
+   
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.form-control label {
+    color: hsl(249, 10%, 26%);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+form input {
+    padding: 1rem 1.5rem;
+    border: 1px solid hsl(246, 25%, 77%);
+    border-radius: 0.3rem;
+    font-weight: 600;
+    color: hsl(249, 10%, 26%);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form input:focus {
+    border-color: hsl(248, 32%, 49%);
+    outline: none;
+}
+
+form input::placeholder {
+    color: hsl(249, 10%, 26%);
+    opacity: 0.6;
+}
+
+.trial , .forgot-pass-btn{
+    background-color: hsl(154, 59%, 51%);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 0 hsl(154, 59%, 45%);
+    padding: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 0.5rem;
+}
+
+.trial:hover, .forgot-pass-btn:hover {
+    background-color: hsl(154, 59%, 45%);
+}
+
+#forgotPopup {
+    display: none;
+    position: fixed;
+    background-color: hsl(248, 32%, 49%);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    font-weight: 600;
+    top: 30%;
+    left: 40%;
+    
+}
+#forgotPopup h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+#forgotPopup input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-bottom: 1rem;
+}
+#verifyCode {
+    background-color: hsl(154, 59%, 45%);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#closePopup {
+    background-color: hsla(0, 90%, 59%, 0.893);
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.terms {
+    color: hsl(246, 25%, 77%);
+    font-size: 0.7em;
+    text-align: center;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+.terms a {
+    color: hsl(0, 100%, 74%);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.forgot-password {
+    color: hsl(226, 93%, 61%);
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+
+
+.form-control.error input {
+    border-color: hsl(0, 100%, 74%);
+    border-width: 2px;
+    background-image: url('images/icon-error.svg');
+    background-repeat: no-repeat;
+    background-position: 95% center;
+    padding-right: 2.5rem;
+}
+
+.error-message {
+    color: hsl(0, 100%, 74%);
+    font-style: italic;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-align: right;
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.form-field {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: hsl(249, 10%, 26%);
+    font-size: 0.8rem;
+}
+
+form input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid hsl(246, 25%, 77%);
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        text-align: center;
+        padding: 5rem 1.5rem;
+        gap: 3rem;
+    }
+
+    .welcome, .right {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+        margin-bottom: 1rem;
+    }
+
+    .welcome p {
+        margin-bottom: 1.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    .subscription {
+        padding: 1rem;
+    }
+}
