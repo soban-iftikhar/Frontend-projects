@@ -1,11 +1,13 @@
-import SignupForm from './SignupForm.jsx'
+import Counter from './Counter.jsx';
+import Form from './SignupForm.jsx'
 import './index.css'
 
 
 function App() {
   return (
     <div className="App">
-      <SignupForm />
+      <Form />
+      {/* <Counter/> */}
       
     </div>
   );
