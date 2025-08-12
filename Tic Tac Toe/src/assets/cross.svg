@@ -1,0 +1,21 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- single glow color: change #39FFAF to whatever you like -->
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.8" result="blur1"></feGaussianBlur>
+      <feGaussianBlur stdDeviation="8" result="blur2"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur2"></feMergeNode>
+        <feMergeNode in="blur1"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- transparent background (default) -->
+  <g filter="url(#glow)" stroke="#39FFAF" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="22" y1="22" x2="78" y2="78" stroke-width="8" opacity="0.96"></line>
+    <line x1="78" y1="22" x2="22" y2="78" stroke-width="8" opacity="0.96"></line>
+  </g>
+</svg>
