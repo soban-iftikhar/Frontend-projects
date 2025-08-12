@@ -81,10 +81,10 @@ const ToDoList = () => {
                                 {item.text}
 
                                 <div className='buttons'>
-                                    <button className='edit' onClick={(e) => e.stopPropagation(editTask(index))}><FaEdit /></button>
-                                    <button className='delete' onClick={(e) => e.stopPropagation(deleteTask(index))}><FaTrash /></button>
-                                    <button className='move' onClick={(e) => e.stopPropagation(moveTaskUp(index))}><FaArrowUp /></button>
-                                    <button className='move' onClick={(e) => e.stopPropagation(moveTaskDown(index))}><FaArrowDown /></button>
+                                    <button className='edit' onClick={(e) => { e.stopPropagation(); editTask(index); }}><FaEdit /></button>
+                                    <button className='delete' onClick={(e) => { e.stopPropagation(); deleteTask(index); }}><FaTrash /></button>
+                                    <button className='move' onClick={(e) => { e.stopPropagation(); moveTaskUp(index); }}><FaArrowUp /></button>
+                                    <button className='move' onClick={(e) => { e.stopPropagation(); moveTaskDown(index); }}><FaArrowDown /></button>
 
                                 </div>
                             </li>
