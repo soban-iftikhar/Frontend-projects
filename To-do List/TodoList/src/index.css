@@ -100,3 +100,20 @@ h1 {
   background-color: #a32626;
 }
 
+.edit{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  cursor: pointer
+}
+
+.edit:hover {
+  background-color: #2980b9;
+}
+
+.completed{
+  text-decoration: line-through;
+  color: #888;
+}
