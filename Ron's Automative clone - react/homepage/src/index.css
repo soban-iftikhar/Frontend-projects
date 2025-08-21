@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+}
+
+.logo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 10px;
+  left: 2rem;
+  z-index: 10;
+}
+
+.logo img {
+  width: 60%;
+  height: auto;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  gap: 1rem;
+  margin-left: 160px;
+  margin-right: 3rem;
+}
+
+.nav-links a {
+  padding: 0.5rem;
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.auth-links {
+  display: flex;
+  gap: 1rem;
+  border: 1px solid #007bff;
+  border-radius: 50px;
+  padding: 0.5rem;
+}
+
+.auth-links .login {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.auth-links .register {
+  background-color: transparent;
+  color: #007bff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  background: url("car-hero.jpg") center/cover no-repeat;
+  color: white;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-top: 2rem;
+  text-align: center;
+  color: rgb(88, 204, 236);
+}
+
+.drop-down {
+  background-color: rgb(240, 248, 255);
+  padding: 2.5rem 0rem;
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+  max-width: 900px;
+  width: 100%;
+}
+
+.drop-down select {
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background: rgba(238, 238, 238, 0.838);
+  cursor: pointer;
+}
+
+.drop-down button {
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  background: #007cf0;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.drop-down button:hover {
+  background: #005bb5;
+}
+
+.body-style {
+  padding: 3rem;
+  background-color: #f8feff;
+}
+
+.body-style h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+  font-weight: 400;
+  text-align: center;
+}
+
+.body-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 120px;
+}
+
+.card img {
+  width: 100%;
+  height: 70px;
+  object-fit: contain;
+  background: #f9f9f9;
+  padding: 0.5rem;
+}
+
+.card-footer {
+  background: #42aaf0;
+  color: white;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  text-align: center;
+}
+
+
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  border-radius: 2px;
+}
+
+
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    display: none;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .auth-links {
+    display: none;
+  }
+}
