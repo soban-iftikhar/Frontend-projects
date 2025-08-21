@@ -5,7 +5,7 @@ import cross from './assets/cross.svg'
 
 const TicTacToe = () => {
 
-    const [data, setData] = useState(Array(9).fill(''));
+    const [data, setData] = useState(['','','','','','','','','']);
     const [count, setCount] = useState(0);
     const [lock, setLock] = useState(false);
 
@@ -20,8 +20,10 @@ const TicTacToe = () => {
     }
 
     function setIcon(index) {
-        if (data[index] === 'x') return <img src={cross} alt="cross" />;
-        if (data[index] === 'o') return <img src={circle} alt="circle" />;
+        if (data[index] === 'x') 
+            return <img src={cross} alt="cross" />;
+        if (data[index] === 'o') 
+            return <img src={circle} alt="circle" />;
         return null;
     }
 
