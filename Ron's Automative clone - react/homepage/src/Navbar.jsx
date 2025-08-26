@@ -1,35 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const Navbar = () => {
+export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="navbar">
+    <nav>
       <div className="logo">
-        <img src="/logo.svg" alt="Ron's Automotive" />
+        <img src="/logo.svg" alt="Logo" />
       </div>
 
-      <div className={`nav-links ${isOpen ? "open" : ""}`}>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">Inventory</a></li>
-        <li><a href="/apply">Apply Online</a></li>
-        <li><a href="/finance">Finance Calculator</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-      </div>
-
-      <div className="auth-links">
-        <a className="login" href="/login">Login</a>
-        <a className="register" href="/register">Register</a>
-      </div>
-
-      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className={`hamburger-btn ${isOpen ? "open" : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span></span>
         <span></span>
         <span></span>
+      </button>
+
+      <div className={`nav-container ${isOpen ? "active" : ""}`}>
+        <ul className="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Cars</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div className="auth-links">
+          <a href="#" className="login">Login</a>
+          <a href="#" className="register">Register</a>
+        </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;

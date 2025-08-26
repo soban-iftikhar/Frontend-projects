@@ -39,7 +39,7 @@ export default function Footer() {
 
 
       <div className="footer-bottom">
-        <p>© 2024 Ron's Automotive.com, All rights reserved.</p>
+        <p>&copy; 2024 Ron's Automotive.com, All rights reserved.</p>
         <div className="footer-links">
           <a href="#">Terms & Conditions</a>
           <a href="#">Privacy Notice</a>
