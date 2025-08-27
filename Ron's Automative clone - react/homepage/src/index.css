@@ -285,23 +285,22 @@ nav {
   margin: 0 auto;
 }
 
-.embla__viewport {
+.embla-viewport {
   overflow: hidden;
   width: 100%;
 }
 
 
-.embla__container {
+.embla-container {
   display: flex;
   gap: 2rem;
           
 }
 
-.embla__slide {
+.embla-slide {
   flex: 0 0 50%;             
   min-width: 0;
-  box-sizing: border-box;
-  padding: 0 12px;          
+  box-sizing: border-box;         
   display: flex;
 }
 

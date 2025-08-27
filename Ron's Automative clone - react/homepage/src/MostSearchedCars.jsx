@@ -4,7 +4,6 @@ import { FaCarSide, FaTachometerAlt, FaCogs, FaTint } from "react-icons/fa";
 
 const MostSearchedCars = () => {
 
-  
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, slidesToScroll: 1 });
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
@@ -61,10 +60,10 @@ const MostSearchedCars = () => {
       <h1>Most Searched Cars</h1>
 
       <div className="embla">
-        <div className="embla__viewport" ref={emblaRef}>
-          <div className="embla__container">
+        <div className="embla-viewport" ref={emblaRef}>
+          <div className="embla-container">
             {cars.map((car, i) => (
-              <div className="embla__slide car-card" key={i}>
+              <div className="embla-slide car-card" key={i}>
                 <img src={car.img} alt={car.name} className="car-image" />
                 <div className="car-info">
                   <h2>{car.name}</h2>
