@@ -270,7 +270,6 @@ nav {
 .most-searched {
   padding: 2rem 1rem;
   background: #f4fafa;
-  
 }
 
 .most-searched h1 {
@@ -280,43 +279,37 @@ nav {
   text-align: center;
 }
 
-.slider-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
+.embla {
   position: relative;
-  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.nav-btn {
-  background: #3b82f6;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  padding: 0.6rem 0.8rem;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: 0.3s;
-  display: none;
-}
-
-.slider {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5rem;
-  justify-content: center;
-  padding: 1rem 0;
+.embla__viewport {
+  overflow: hidden;
   width: 100%;
 }
 
+
+.embla__container {
+  display: flex;
+  gap: 2rem;
+          
+}
+
+.embla__slide {
+  flex: 0 0 50%;             
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0 12px;          
+  display: flex;
+}
+
 .car-card {
+  width: 100%;              
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
- 
-  width: 280px;
-  min-width: 280px;
   min-height: 500px;
   display: flex;
   flex-direction: column;
@@ -328,9 +321,12 @@ nav {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  display: block;           
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }
+
+
 
 .car-info {
   display: flex;
@@ -366,6 +362,10 @@ nav {
   transition: 0.3s;
 }
 
+.buy-btn:hover {
+  background: #2563eb;
+}
+
 .specs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -399,6 +399,49 @@ nav {
   justify-content: flex-end;
   margin-top: auto;
 }
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.nav-btn:hover {
+  background: #2563eb;
+}
+
+.nav-btn.left {
+  left: -3rem;
+}
+
+.nav-btn.right {
+  right: -3rem;
+}
+
+@media (max-width: 768px) {
+  .embla__slide {
+    flex: 0 0 100%; 
+  }
+
+  .nav-btn.left {
+    left: 0.5rem;
+  }
+
+  .nav-btn.right {
+    right: 0.5rem;
+  }
+}
+
+
 
 /* Services */
 .services {
@@ -446,6 +489,8 @@ nav {
   font-size: 1rem;
   font-weight: 600;
 }
+
+
 
 /* Schedule Test Drive */
 .schedule-container {
