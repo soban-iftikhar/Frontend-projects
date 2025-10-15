@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFest 2025 - Student Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  
+
+    
+  <main class="registration-container">
+    <!-- Form Container -->
+    <div id="form-container" class="glass-effect">
+      <div class="form-header">
+        <h1>TechFest 2025</h1>
+        <p>Student Registration</p>
+      </div>
+
+      <form id="registrationForm" novalidate>
+       
+        <!-- Full Name -->
+        <div class="form-field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name">
+          <small class="error-message" id="nameError"></small>
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="student@email.com">
+          <small class="error-message" id="emailError"></small>
+        </div>
+
+        <!-- Phone Number -->
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="11-digit number">
+          <small class="error-message" id="phoneError"></small>
+        </div>
+
+        <!-- Department -->
+        <div class="form-field">
+          <label for="department">Department</label>
+          <select id="department" class="custom-select">
+            <option value="">Select Department</option>
+            <option value="CS">Computer Science</option>
+            <option value="SE">Software Engineering</option>
+            <option value="AI">Artificial Intelligence</option>
+            <option value="IT">Information Technology</option>
+            <option value="EE">Electrical Engineering</option>
+            <option value="BBA">Business Administration</option>
+            <option value="Other">Other</option>
+          </select>
+          <small class="error-message" id="deptError"></small>
+        </div>
+
+        <!-- Event Type -->
+        <div class="form-field">
+          <label>Event Type</label>
+          <div class="radio-group">
+            <label class="custom-radio"><input type="radio" name="eventType" value="Workshop"><span>Workshop</span></label>
+            <label class="custom-radio"><input type="radio" name="eventType" value="Seminar"><span>Seminar</span></label>
+            <label class="custom-radio"><input type="radio" name="eventType" value="Hackathon"><span>Hackathon</span></label>
+          </div>
+          <small class="error-message" id="eventError"></small>
+        </div>
+
+        <!-- Comments -->
+        <div class="form-field">
+          <label for="comments">Comments (Optional)</label>
+          <textarea id="comments" maxlength="100" placeholder="Any additional info..."></textarea>
+          <div class="char-counter"><span id="charCount">100</span> characters left</div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="submitBtn" type="submit" class="glow-button" disabled>
+          Submit Registration
+        </button>
+      </form>
+    </div>
+  </main>
+  
+  <!-- Success Modal -->
+  <div id="successModal" class="modal-overlay">
+      <div class="modal-content glass-effect">
+          <div class="success-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+          </div>
+          <h3>Registration Successful!</h3>
+          <div class="success-message-container">
+              <p id="successMessage"></p>
+          </div>
+      </div>
+  </div>
+
+  
+</body>
+</html>
+
